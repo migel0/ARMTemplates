@@ -1,0 +1,470 @@
+{
+ "properties": {
+  "displayName": "Prefapp Apply diagnostic settings for applicable resources - Log Analytics",
+  "policyType": "Custom",
+  "description": "This initiative configures application Azure resources to forward diagnostic logs and metrics to an Azure Log Analytics workspace.",
+  "metadata": {
+   "category": "Prefapp-Monitoring",
+   "createdBy": "5f99003e-0565-42eb-b69b-b1852c8b5cde",
+   "createdOn": "2020-06-26T13:17:15.5578593Z",
+   "updatedBy": "5f99003e-0565-42eb-b69b-b1852c8b5cde",
+   "updatedOn": "2020-06-29T10:39:21.9106609Z"
+  },
+  "parameters": {
+   "logAnalytics": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Log Analytics workspace",
+     "description": "Select the Log Analytics workspace from dropdown list",
+     "strongType": "omsWorkspace"
+    }
+   }
+  },
+  "policyDefinitions": [
+   {
+    "policyDefinitionReferenceId": "17326283316957556938",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/nic-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "1954919259917644317",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/aa-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "7776340819704953375",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/pip-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "6419874544939280552",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/lb-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "13342896486574337180",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/nsg-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "9202804472328550036",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/kv-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "17412408909153383362",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/cognitive-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "13206562140172170647",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/dlanalytics-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "1645720100633819575",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/dlstore-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "12421437641869663091",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/eventHub-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "13244276532153098985",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/iotHub-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "13626002944101326475",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/logicApps-workflow-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "10898106979630846829",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/logicApps-integrationAccounts-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "1859833351502686374",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/recoveryVault-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "1825328939959125260",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/searchServices-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "16536741540411109155",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/serviceBus-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "12429604292745310571",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/sqlDBs-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "2385202839789392428",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/sqlElasticPools-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "14270527905117382696",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/apiMgmt-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "1688569242966627739",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/appGw-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "6275767474117258135",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/batch-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "173187375331446025",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/mySQL-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "3454542683829970300",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/postgreSQL-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "8849057506299231818",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/cdnEndpoints-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "13544538651002291616",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/cosmosDBs-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "9960290164523745065",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/dataFactory-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "8956623063861600499",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/firewall-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "14818699553452261271",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/powerBIEmbedded-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "15056803696613122306",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/streamAnalytics-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "9267339218007027134",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/expressRoutes-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "12493501039073813782",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/aci-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "4898619671866685434",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/acr-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "9086474308681097610",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/vnet-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "16791313057168478159",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/vm-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "2536148360581293088",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/vmss-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "12266189293156296493",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/vnetGW-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "2670143941761629610",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/aks-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "11618722594975381554",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/website-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "7956365240590290378",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/analysisService-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "3633381739516849969",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/eventGridTopic-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "3578890808214384883",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/eventGridSub-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "8602690623581824942",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/hdInsight-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "7210878340190497119",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/redisCache-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "7624506913557322352",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/relay-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "5460016687385919750",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/signalR-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "11084385339232216646",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/trafficManager-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "15553507285713344804",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/webServerFarm-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "12522621674974177963",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/sql-mi-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "1403971606472542518",
+    "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/timeSeriesInsights-diagnostic-settings-policyDef",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('logAnalytics')]"
+     }
+    }
+   }
+  ]
+ },
+ "id": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policySetDefinitions/resource-diagnostic-settings-policySet",
+ "type": "Microsoft.Authorization/policySetDefinitions",
+ "name": "resource-diagnostic-settings-policySet"
+}

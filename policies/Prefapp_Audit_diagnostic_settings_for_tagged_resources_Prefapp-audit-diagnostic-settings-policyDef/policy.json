@@ -1,0 +1,117 @@
+{
+ "properties": {
+  "displayName": "Prefapp Audit diagnostic settings for tagged resources",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "This policy audits diagnostic settings for tagged resources",
+  "metadata": {
+   "category": "Prefapp-Monitoring",
+   "createdBy": "5f99003e-0565-42eb-b69b-b1852c8b5cde",
+   "createdOn": "2020-06-26T11:24:27.4583006Z",
+   "updatedBy": "5f99003e-0565-42eb-b69b-b1852c8b5cde",
+   "updatedOn": "2020-06-29T07:07:25.7505894Z"
+  },
+  "parameters": {
+   "tagName": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Name of tag, ex. environment",
+     "description": "Name of tag, ex. environment"
+    }
+   },
+   "tagValue": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Tag value, ex. production",
+     "description": "Resources tagged with this value will be affected by this policy"
+    }
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "in": [
+       "Microsoft.Network/networkInterfaces",
+       "Microsoft.Automation/automationAccounts",
+       "Microsoft.Network/publicIPAddresses",
+       "Microsoft.Network/loadBalancers",
+       "Microsoft.Network/networkSecurityGroups",
+       "Microsoft.KeyVault/vaults",
+       "Microsoft.CognitiveServices/accounts",
+       "Microsoft.DataLakeAnalytics/accounts",
+       "Microsoft.DataLakeStore/accounts",
+       "Microsoft.EventHub/namespaces",
+       "Microsoft.Devices/IotHubs",
+       "Microsoft.Logic/workflows",
+       "Microsoft.Logic/integrationAccounts",
+       "Microsoft.RecoveryServices/vaults",
+       "Microsoft.Search/searchServices",
+       "Microsoft.ServiceBus/namespaces",
+       "Microsoft.Sql/servers/databases",
+       "Microsoft.Sql/servers/elasticPools",
+       "Microsoft.ApiManagement/service",
+       "Microsoft.Network/applicationGateways",
+       "Microsoft.Batch/batchAccounts",
+       "Microsoft.DBforMySQL/servers",
+       "Microsoft.DBforPostgreSQL/servers",
+       "Microsoft.DBforMariaDB/servers",
+       "Microsoft.Cdn/profiles/endpoints",
+       "Microsoft.DocumentDB/databaseAccounts",
+       "Microsoft.DataFactory/factories",
+       "Microsoft.Network/azureFirewalls",
+       "Microsoft.PowerBIDedicated/capacities",
+       "Microsoft.StreamAnalytics/streamingjobs",
+       "Microsoft.Network/expressRouteCircuits",
+       "Microsoft.ContainerInstance/containerGroups",
+       "Microsoft.ContainerRegistry/registries",
+       "Microsoft.Network/virtualNetworks",
+       "Microsoft.Compute/virtualMachines",
+       "Microsoft.Compute/virtualMachineScaleSets",
+       "Microsoft.Network/virtualNetworkGateways",
+       "Microsoft.ContainerService/managedClusters",
+       "Microsoft.Web/sites",
+       "Microsoft.AnalysisServices/servers",
+       "Microsoft.EventGrid/topics",
+       "Microsoft.EventGrid/eventSubscriptions",
+       "Microsoft.HDInsight/clusters",
+       "Microsoft.Cache/redis",
+       "Microsoft.Relay/namespaces",
+       "Microsoft.SignalRService/SignalR",
+       "Microsoft.Network/trafficManagerProfiles",
+       "Microsoft.Web/serverfarms",
+       "Microsoft.Sql/managedInstances",
+       "Microsoft.TimeSeriesInsights/environments"
+      ]
+     },
+     {
+      "field": "[concat('tags[', parameters('tagName'), ']')]",
+      "equals": "[parameters('tagValue')]"
+     }
+    ]
+   },
+   "then": {
+    "effect": "AuditIfNotExists",
+    "details": {
+     "type": "Microsoft.Insights/diagnosticSettings",
+     "existenceCondition": {
+      "allOf": [
+       {
+        "field": "Microsoft.Insights/diagnosticSettings/logs.enabled",
+        "equals": "true"
+       },
+       {
+        "field": "Microsoft.Insights/diagnosticSettings/metrics.enabled",
+        "equals": "true"
+       }
+      ]
+     }
+    }
+   }
+  }
+ },
+ "id": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyDefinitions/Prefapp-audit-diagnostic-settings-policyDef",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "Prefapp-audit-diagnostic-settings-policyDef"
+}

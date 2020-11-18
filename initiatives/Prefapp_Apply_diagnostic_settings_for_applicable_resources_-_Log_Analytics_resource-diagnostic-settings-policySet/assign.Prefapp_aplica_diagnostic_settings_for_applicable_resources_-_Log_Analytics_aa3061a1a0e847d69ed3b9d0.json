@@ -1,0 +1,37 @@
+{
+ "sku": {
+  "name": "A0",
+  "tier": "Free"
+ },
+ "properties": {
+  "displayName": "Prefapp aplica diagnostic settings for applicable resources - Log Analytics",
+  "policyDefinitionId": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policySetDefinitions/resource-diagnostic-settings-policySet",
+  "scope": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118",
+  "notScopes": [],
+  "parameters": {
+   "logAnalytics": {
+    "value": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/resourcegroups/test_policy/providers/microsoft.operationalinsights/workspaces/testpolicyusc2"
+   }
+  },
+  "metadata": {
+   "assignedBy": "mpajarin@4eixos.com ",
+   "parameterScopes": {
+    "logAnalytics": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118"
+   },
+   "createdBy": "5f99003e-0565-42eb-b69b-b1852c8b5cde",
+   "createdOn": "2020-06-26T13:31:12.9699146Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "enforcementMode": "Default"
+ },
+ "identity": {
+  "principalId": "0dc68e45-2116-418e-b9ac-e4723a8195c1",
+  "tenantId": "c07bc91e-79ef-467e-afbb-111a74287e79",
+  "type": "SystemAssigned"
+ },
+ "id": "/subscriptions/b167cf14-2d24-4492-a011-22b9efac9118/providers/Microsoft.Authorization/policyAssignments/aa3061a1a0e847d69ed3b9d0",
+ "type": "Microsoft.Authorization/policyAssignments",
+ "name": "aa3061a1a0e847d69ed3b9d0",
+ "location": "westeurope"
+}

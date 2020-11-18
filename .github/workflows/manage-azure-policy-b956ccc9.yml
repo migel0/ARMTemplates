@@ -1,0 +1,134 @@
+name: manage-azure-policy-b956ccc9
+on:
+  workflow_dispatch:
+    inputs:
+      remarks:
+        description: 'Reason for triggering the workflow run'
+        required: false
+        default: 'Updating Azure Policies'
+
+
+## Uncomment the following if you wish to automatically trigger workflow run with every commit
+#
+#  push:
+#    paths:
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_Azure_Automation_Accounts_-_Log_Analytics_aa-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_Azure_Container_Instances_-_Log_Analytics_aci-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_Azure_Container_Registries_-_Log_Analytics_acr-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_Azure_Kubernetes_Service_-_Log_Analytics_aks-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_Azure_Analysis_Services_-_Log_Analytics_analysisService-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_API_Management_services_-_Log_Analytics_apiMgmt-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_Azure_Batch_accounts_-_Log_Analytics_batch-diagnostic-settings-policyDef/**'
+#      - 'policies/PROBA_01_Prefapp_Apply_diagnostic_settings_for_Application_Gateways_-_Log_Analytics_appGw-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_CDN_Endpoints_-_Log_Analytics_cdnEndpoints-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_Cognitive_Services_-_Log_Analytics_cognitive-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_Cosmos_DB_-_Log_Analytics_cosmosDBs-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_Data_Factory_-_Log_Analytics_dataFactory-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_Data_Lake_Analytics_-_Log_Analytics_dlanalytics-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_Data_Lake_Storage_-_Log_Analytics_dlstore-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_Event_Grid_Topics_-_Log_Analytics_eventGridTopic-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_Event_Grid_Subscriptions_-_Log_Analytics_eventGridSub-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_Event_Hub_Namespaces_-_Log_Analytics_eventHub-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_Express_Routes_Circuits_-_Log_Analytics_expressRoutes-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_Azure_Firewalls_-_Log_Analytics_firewall-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_HDInsight_-_Log_Analytics_hdInsight-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_IoT_Hubs_-_Log_Analytics_iotHub-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_Key_Vaults_-_Log_Analytics_kv-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_Load_Balancers_-_Log_Analytics_lb-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_Logic_Apps_Integration_Accounts_-_Log_Analytics_logicApps-integrationAccounts-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_MariaDB_Databases_-_Log_Analytics_mariaD-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_Logic_Apps_workflows_-_Log_Analytics_logicApps-workflow-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_MySQL_Databases_-_Log_Analytics_mySQL-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_Network_Interfaces_-_Log_Analytics_nic-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_Network_Security_Groups_-_Log_Analytics_nsg-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_Public_IPs_-_Log_Analytics_pip-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_PostgreSQL_Databases_-_Log_Analytics_postgreSQL-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_Power_BI_Embedded_-_Log_Analytics_powerBIEmbedded-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Audit_diagnostic_settings_for_tagged_resources_Prefapp-audit-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_Redis_Cache_-_Log_Analytics_redisCache-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_Recovery_Vaults_-_Log_Analytics_recoveryVault-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_Azure_Relay_-_Log_Analytics_relay-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_Service_Bus_namespaces_-_Log_Analytics_serviceBus-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_Search_Services_-_Log_Analytics_searchServices-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_SignalR_-_Log_Analytics_signalR-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_SQL_Managed_Instances_-_Log_Analytics_sql-mi-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_SQL_Databases_-_Log_Analytics_sqlDBs-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_SQL_Elastic_Pools_-_Log_Analytics_sqlElasticPools-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_Stream_Analytics_-_Log_Analytics_streamAnalytics-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_Time_Series_Insights_-_Log_Analytics_timeSeriesInsights-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_Azure_Traffic_Manager_-_Log_Analytics_trafficManager-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_Virtual_Machines_-_Log_Analytics_vm-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_Virtual_Machine_Scale_Sets_-_Log_Analytics_vmss-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_Virtual_Network_Gateways_-_Log_Analytics_vnetGW-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_Azure_App_Service_Plans_-_Log_Analytics_webServerFarm-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_Azure_Web_Sites_website-diagnostic-settings-policyDef/**'
+#      - 'policies/Prefapp_Apply_diagnostic_settings_for_Virtual_Networks_-_Log_Analytics_vnet-diagnostic-settings-policyDef/**'
+#      - 'initiatives/Prefapp_Apply_diagnostic_settings_for_applicable_resources_-_Log_Analytics_resource-diagnostic-settings-policySet/**'
+#      - .github/workflows/manage-azure-policy-b956ccc9.yml
+jobs:
+  apply-azure-policy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS_b956ccc9}}
+        allow-no-subscriptions: true
+    - name: Create or Update Azure Policies
+      uses: azure/manage-azure-policy@v0
+      with:
+        paths: |
+          policies/Prefapp_Apply_diagnostic_settings_for_Azure_Automation_Accounts_-_Log_Analytics_aa-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_Azure_Container_Instances_-_Log_Analytics_aci-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_Azure_Container_Registries_-_Log_Analytics_acr-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_Azure_Kubernetes_Service_-_Log_Analytics_aks-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_Azure_Analysis_Services_-_Log_Analytics_analysisService-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_API_Management_services_-_Log_Analytics_apiMgmt-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_Azure_Batch_accounts_-_Log_Analytics_batch-diagnostic-settings-policyDef/**
+          policies/PROBA_01_Prefapp_Apply_diagnostic_settings_for_Application_Gateways_-_Log_Analytics_appGw-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_CDN_Endpoints_-_Log_Analytics_cdnEndpoints-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_Cognitive_Services_-_Log_Analytics_cognitive-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_Cosmos_DB_-_Log_Analytics_cosmosDBs-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_Data_Factory_-_Log_Analytics_dataFactory-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_Data_Lake_Analytics_-_Log_Analytics_dlanalytics-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_Data_Lake_Storage_-_Log_Analytics_dlstore-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_Event_Grid_Topics_-_Log_Analytics_eventGridTopic-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_Event_Grid_Subscriptions_-_Log_Analytics_eventGridSub-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_Event_Hub_Namespaces_-_Log_Analytics_eventHub-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_Express_Routes_Circuits_-_Log_Analytics_expressRoutes-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_Azure_Firewalls_-_Log_Analytics_firewall-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_HDInsight_-_Log_Analytics_hdInsight-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_IoT_Hubs_-_Log_Analytics_iotHub-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_Key_Vaults_-_Log_Analytics_kv-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_Load_Balancers_-_Log_Analytics_lb-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_Logic_Apps_Integration_Accounts_-_Log_Analytics_logicApps-integrationAccounts-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_MariaDB_Databases_-_Log_Analytics_mariaD-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_Logic_Apps_workflows_-_Log_Analytics_logicApps-workflow-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_MySQL_Databases_-_Log_Analytics_mySQL-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_Network_Interfaces_-_Log_Analytics_nic-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_Network_Security_Groups_-_Log_Analytics_nsg-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_Public_IPs_-_Log_Analytics_pip-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_PostgreSQL_Databases_-_Log_Analytics_postgreSQL-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_Power_BI_Embedded_-_Log_Analytics_powerBIEmbedded-diagnostic-settings-policyDef/**
+          policies/Prefapp_Audit_diagnostic_settings_for_tagged_resources_Prefapp-audit-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_Redis_Cache_-_Log_Analytics_redisCache-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_Recovery_Vaults_-_Log_Analytics_recoveryVault-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_Azure_Relay_-_Log_Analytics_relay-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_Service_Bus_namespaces_-_Log_Analytics_serviceBus-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_Search_Services_-_Log_Analytics_searchServices-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_SignalR_-_Log_Analytics_signalR-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_SQL_Managed_Instances_-_Log_Analytics_sql-mi-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_SQL_Databases_-_Log_Analytics_sqlDBs-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_SQL_Elastic_Pools_-_Log_Analytics_sqlElasticPools-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_Stream_Analytics_-_Log_Analytics_streamAnalytics-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_Time_Series_Insights_-_Log_Analytics_timeSeriesInsights-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_Azure_Traffic_Manager_-_Log_Analytics_trafficManager-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_Virtual_Machines_-_Log_Analytics_vm-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_Virtual_Machine_Scale_Sets_-_Log_Analytics_vmss-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_Virtual_Network_Gateways_-_Log_Analytics_vnetGW-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_Azure_App_Service_Plans_-_Log_Analytics_webServerFarm-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_Azure_Web_Sites_website-diagnostic-settings-policyDef/**
+          policies/Prefapp_Apply_diagnostic_settings_for_Virtual_Networks_-_Log_Analytics_vnet-diagnostic-settings-policyDef/**
+          initiatives/Prefapp_Apply_diagnostic_settings_for_applicable_resources_-_Log_Analytics_resource-diagnostic-settings-policySet/**
